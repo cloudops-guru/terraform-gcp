@@ -1,0 +1,7 @@
+vm_name             = "my-first-vm"
+machine_type        = "e2-medium"
+zone                = "us-central1-a"
+boot_disk_image     = "debian-cloud/debian-11"
+environment         = "development"
+application         = "order-management"
+business_unit       = "retail"
