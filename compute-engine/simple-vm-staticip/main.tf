@@ -7,7 +7,8 @@ resource "google_compute_instance" "default" {
   name         = var.vm_name
   machine_type = var.machine_type
   zone         = var.zone
- 
+
+  tags = ["http-server", "bar"]
   labels = {
     environment   = var.environment 
     application   = var.application
@@ -31,4 +32,16 @@ resource "google_compute_instance" "default" {
  // metadata_startup_script = "echo hi > /test.txt"
    
 }
- 
+
+resource "google_compute_firewall" "http_firewall" {
+  name    = "allow-http"
+  network = "default"
+
+  allow {
+    protocol = "tcp"
+    ports    = ["80"]
+  }
+
+  source_ranges = ["0.0.0.0/0"]
+  target_tags   = ["http-server"]
+}
