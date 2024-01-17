@@ -1,11 +1,10 @@
 # terraform-gcp
 
-```terraform init```
-
-```terraform plan -var-file=dev.tfvars -out .terraform/latest-plan```
-
-
-```terraform apply --input=false .terraform/latest-plan```
+```groovy 
+terraform init 
+terraform plan -var-file=dev.tfvars -out .terraform/latest-plan```
+terraform apply --input=false .terraform/latest-plan
+```
 
 
 # Delete the created resources
